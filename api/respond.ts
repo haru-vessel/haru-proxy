@@ -68,7 +68,10 @@ export default async function handler(req: Request) {
     const kw = extractKeyword(userText);
     const dictNote = kw ? await fetchKorDict(kw) : null;
 
-    const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! });
+    const client = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY!,
+});
+
 
     const systemParts = [
       "You are Haru. Reply in natural Korean. Keep it short, calm, and a bit wry.",
